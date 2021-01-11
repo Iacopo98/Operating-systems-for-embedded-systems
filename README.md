@@ -5,14 +5,14 @@ This repository contains the Yocto layer for the assignment
 
 In this github repository it is located the layer named "monitorlayer". To install that, first we need to have poky installed that contains the OpenEmbedded Build System.
 Then we download the repository with the command <git clone https://github.com/Iacopo98/Operating-systems-for-embedded-systems> where we prefer. 
-Then we move the repository monitorlayer in poky with the command : <mv ./Operating-systems-for-embedded-systems/monitorlayer ./poky> .
-After we change directory with : <cd poky> , if we are using an arm target then we digit the following command: <source oe-init-build-env build_qemuarm> .
-To add the layer to the image configuration: <bitbake-layers add-layer ../monitorlayer/> .
+Then we move the repository monitorlayer in poky with the command : mv ./Operating-systems-for-embedded-systems/monitorlayer ./poky  .
+After we change directory with : cd poky  , if we are using an arm target then we digit the following command: source oe-init-build-env build_qemuarm .
+To add the layer to the image configuration: bitbake-layers add-layer ../monitorlayer/ .
 Inside the layer there are two recipes in recipes-example, "apprecipe" for the application and "cddrecipe" for the driver. 
 In the comments of cddrecipe there is a possible implementation of the sensor, for example in this case the sensor is based on GPIO and it use a UART comunication protocol. 
 The normal code just read data from the vector provided for the assignment.
-In the file local.conf in /poky/build_qemuarm we need to add the following rows: <IMAGE_INSTALL_append = " app">, <IMAGE_INSTALL_append = " cddrecipe"> .
-Finally we can re-build the image with the new layer with: <bitbake core-image-minimal> . The application can be tested by lanching the system with <runqemu qemuarm>, and then run the app file in user/bin/app . After few second on terminal will appear the bpm: "76 bpm". It continue in loop.
+In the file local.conf in /poky/build_qemuarm we need to add the following rows: IMAGE_INSTALL_append = " app" , IMAGE_INSTALL_append = " cddrecipe" .
+Finally we can re-build the image with the new layer with: bitbake core-image-minimal . The application can be tested by lanching the system with runqemu qemuarm , and then run the app file in user/bin/app . After few second on terminal will appear the bpm: "76 bpm". It continue in loop.
   
   
  2) About Timing
