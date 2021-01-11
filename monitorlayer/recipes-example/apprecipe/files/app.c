@@ -138,17 +138,4 @@ int main(void)
   exit(EXIT_SUCCESS);
 }
 
-/*
- * char *app_name = argv[0];
-char *dev_name = "/dev/mymod";
-int fd = -1;
-char c;
-if ((fd = open(dev_name, O_RDWR)) < 0)
-{
-fprintf(stderr, "%s: unable to open %s: %s\n", app_name, dev_name, strerror(errno));
-return( 1 );
-}
-read( fd, &c, 1 );
-printf( "read: %d\n", c );
-close( fd );
-return 0; */
+
